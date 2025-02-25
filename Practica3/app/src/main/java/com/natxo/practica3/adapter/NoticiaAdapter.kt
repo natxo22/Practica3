@@ -25,12 +25,13 @@ class NoticiaAdapter(
     override fun onBindViewHolder(holder: NoticiaViewHolder, position: Int) {
         val item = noticiaList[position]
         holder.render(item)
-
+        
         holder.binding.button.setOnClickListener{
             //Cargar imagenes desde los items del adaptador
+            // (en mi windows 10 daba pantallazo azul, en el ordenador de clase funciona perfectamente)
+            
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.enlace))
-            //TODO No descomentar de momento
-            //holder.itemView.context.startActivity(intent)
+            holder.itemView.context.startActivity(intent)
 
             prefs.setLastClickedTitle(item.titulo)
 
